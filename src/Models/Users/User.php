@@ -129,6 +129,11 @@ class User extends ActiveRecordEntity
         $this->save();
     }
     
+    /**
+     * @param array $loginData
+     * @return \Models\Users\User
+     * @throws InvalidArgumentException
+     */
     public static function login(array $loginData): User 
     {
         if (empty($loginData['email'])) {

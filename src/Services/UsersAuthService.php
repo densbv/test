@@ -14,10 +14,8 @@ class UsersAuthService
     public static function createToken(User $user): void 
     {
         session_regenerate_id();
-
+        $_SESSION['id'] = $user->getId();
         $_SESSION['agent'] = $_SERVER['HTTP_USER_AGENT'];
-        
-        //$token = $user->getId() . ':' . $user->getAuthToken();
         $token = $user->getAuthToken();
         setcookie('kts', $token, 0, '/', '', false, true);
     }
@@ -27,29 +25,50 @@ class UsersAuthService
      */
     public static function getUserByToken(): ?User 
     {
-        if ($_SESSION['agent'] !== $_SERVER['HTTP_USER_AGENT']) {
-            setcookie('kts', '', 0, '/', '', false, true);
-            unset($_SESSION['agent']);
+        if (!isset($_SESSION['id']) && !isset($_SESSION['agent']) &&
+        !isset($_COOKIE['kts'])) {
+           return null;
+        }
+        
+        if ($_SESSION['agent'] !== $_SERVER['HTTP_USER_AGENT']) { 
+            self::tokenReset();
             return null;
         }
         
         $token = $_COOKIE['kts'];
         
         if (empty($token)) {
+            self::tokenReset();
             return null;
         }
 
         $authToken = Helper::sanitizeString($token);
+        
+        $id = $_SESSION['id'];
 
-        $user = User::findOneByColumn('auth_token', $authToken);
+        $user = User::getById($id);
         
         if ($user === null) {
             return null;
         }
         
-        return $user;
+        if ($user->getAuthToken() !== $authToken) {
+            self::tokenReset();
+            return null;
+        }
         
-        //[$userId, $authToken] = explode(':', $token, 2);
-        //$user = User::getById((int) $userId);
+        return $user;
     }
+    
+    /**
+     * @return void
+     */
+    public static function tokenReset(): void 
+    {
+        session_regenerate_id();
+        unset($_SESSION['id']);
+        unset($_SESSION['agent']);
+        setcookie('kts', '', 0, '/', '', false, true);
+    }
+
 }
