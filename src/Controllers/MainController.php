@@ -9,8 +9,6 @@ class MainController extends AbstractController
 
     public function main()
     {
-
-        var_dump($_SESSION);
         $articles = Article::findAll();
         
         $this->metaTag->setTitle('My BLOG');  

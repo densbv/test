@@ -70,5 +70,4 @@ class UsersAuthService
         unset($_SESSION['agent']);
         setcookie('kts', '', 0, '/', '', false, true);
     }
-
 }

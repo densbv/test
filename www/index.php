@@ -1,5 +1,7 @@
 <?php
 
+use Services\Router;
+
 try {
 spl_autoload_register(function (string $className) { // автозагрузка классов
     require_once __DIR__ . '../../src/' . $className . '.php';   
@@ -10,31 +12,8 @@ ini_set('session.cookie_httponly',1);
 session_name('tsu');
 session_start();
 
-$route = $_GET['route'] ?? ''; // запрос или пустая строка
-
-$routes = require __DIR__ . '/../src/routes.php'; // подключаем файл с роутами
-
-$isRouteFound = false; // маршрут найден? - нет
-
-foreach ($routes as $pattern => $controllerAndAction) { // в цикле проходим по заданным роутам
-    preg_match($pattern, $route, $matches); // смотрим соответствует ли шаблон из роутов запросу
-    if (!empty($matches)) { // если массив не пуст, что означает совпадение
-        $isRouteFound = true; // то маршрут найден, возвращаем true
-        break; // завершаем цикл, выходим
-    }
-}
-
-if (!$isRouteFound) { // если маршрут не найден, бросаем исключение
-    throw new \Exceptions\NotFoundException();
-}
-
-unset($matches[0]); // удаляем первое совпадение из массива
-
-$controllerName = $controllerAndAction[0]; // получаем название контроллера
-$actionName = $controllerAndAction[1]; // получаем название экшена
-
-$controller = new $controllerName(); // создаем экземпляр класса контроллера
-$controller->$actionName(...$matches); // вызываем его метод экшн и передаем массив значений, если есть
+$router = new Router();
+$router->run();
 
 } catch (\Exceptions\DbException $e) { // отлавливаем ошибку базы данных
     $view = new \View\View(__DIR__ . '/../templates/errors'); // создаем экземпляр обьекта view

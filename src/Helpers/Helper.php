@@ -25,7 +25,7 @@ class Helper
         $var = strip_tags($var);  // заменяет все угловые скобки, 
         //используемые в качестве
         //составляющих HTML-тегов
-        $var = htmlentities($var); // для удаления из строки любого HTML-кода
+        $var = htmlentities($var, ENT_QUOTES); // для удаления из строки любого HTML-кода
         return $var;
     }
 
