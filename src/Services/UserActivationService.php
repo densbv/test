@@ -1,8 +1,9 @@
 <?php
 
-namespace Models\Users;
+namespace Services;
 
 use Services\Db;
+use Models\Users\User;
 
 class UserActivationService 
 {

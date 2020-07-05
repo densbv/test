@@ -1,6 +1,6 @@
 <?php
 
-use Services\Router;
+use Components\Router;
 
 try {
 spl_autoload_register(function (string $className) { // автозагрузка классов

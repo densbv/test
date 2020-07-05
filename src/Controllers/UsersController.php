@@ -3,7 +3,7 @@
 namespace Controllers;
 
 use Exceptions\InvalidArgumentException;
-use Models\Users\UserActivationService;
+use Services\UserActivationService;
 use Services\EmailSender;
 use Models\Users\User;
 use Services\UsersAuthService;

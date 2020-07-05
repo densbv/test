@@ -2,7 +2,7 @@
 
 namespace Models;
 
-use Services\Db;
+use Components\Db;
 
 abstract class ActiveRecordEntity 
 {

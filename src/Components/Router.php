@@ -1,6 +1,6 @@
 <?php
 
-namespace Services;
+namespace Components;
 
 use helpers\Helper;
 
@@ -16,7 +16,7 @@ class Router
     public function __construct() 
     {
         // Подключаем файл с маршрутами routes.php
-        $routesPath = __DIR__ . '/../../src/routes.php';
+        $routesPath = __DIR__ . '/../../src/config/routes.php';
         $this->routes = require $routesPath;
         $this->route = ''; // пустая строка
         $this->isRouteFound = false; // маршрут найден? - нет

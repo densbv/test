@@ -1,6 +1,7 @@
 <?php
 
-namespace Services;
+namespace Components;
+
 use Exceptions\DbException;
 
 class Db {
@@ -12,7 +13,7 @@ class Db {
 
     private function __construct() {
 
-        $dbOptions = (require __DIR__ . '../../settings.php')['db'];
+        $dbOptions = (require __DIR__ . '../../config/settings.php')['db'];
         
         try {
         $this->pdo = new \PDO(
