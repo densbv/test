@@ -32,7 +32,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `users` (`id`, `nickname`, `email`, `is_confirmed`, `role`, `password_hash`, `auth_token`, `created_at`) VALUES
-(1,	'admin',	'admin@gmail.com',	1,	'admin',	'hash1',	'token1',	'2020-06-26 17:42:15'),
+(1,	'admin',	'admin@gmail.com',	1,	'admin',	'$2y$10$SMEkEvq8YITGZ2Hnl4SFXu8MgYQisRmcKOtamuFtD151tzR27V1ii',	'c7006b65af4d2b60f1edf54482d730a64524d91b17f5846644a4fe89d59163eae68b0d3913d98dca',	'2020-06-26 17:42:15'),
 (2,	'user',	'user@gmail.com',	1,	'user',	'hash2',	'token2',	'2020-06-26 17:42:15');
 
 DROP TABLE IF EXISTS `users_activation_codes`;
@@ -44,4 +44,4 @@ CREATE TABLE `users_activation_codes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
--- 2020-07-07 06:52:45
+-- 2020-07-07 08:00:29
