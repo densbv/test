@@ -95,7 +95,7 @@ class ArticlesController extends AbstractController
         
         $article->delete();
         
-        
+        header('Location: /');
     }
 
 }
