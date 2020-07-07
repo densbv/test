@@ -5,16 +5,13 @@
         <group>
             <file>file:/F:/OpenServer/domains/test/src/Controllers/UsersController.php</file>
             <file>file:/F:/OpenServer/domains/test/templates/header.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/routes.php</file>
             <file>file:/F:/OpenServer/domains/test/src/Models/ActiveRecordEntity.php</file>
             <file>file:/F:/OpenServer/domains/test/src/Services/UsersAuthService.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/Helpers/Helper.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/Controllers/AbstractController.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/Controllers/ArticlesController.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/Controllers/MainController.php</file>
+            <file>file:/F:/OpenServer/domains/test/src/Services/UserActivationService.php</file>
+            <file>file:/F:/OpenServer/domains/test/src/Services/EmailSender.php</file>
             <file>file:/F:/OpenServer/domains/test/www/index.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/Models/Users/User.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/View/View.php</file>
+            <file>file:/F:/OpenServer/domains/test/src/Models/MetaTag.php</file>
+            <file>file:/F:/OpenServer/domains/test/www/styles.css</file>
         </group>
     </open-files>
 </project-private>

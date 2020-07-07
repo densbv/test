@@ -11,47 +11,25 @@ namespace Components;
 class Pagination
 {
 
-    /**
-     * 
-     * @var Ссылок навигации на страницу
-     * 
-     */
+    /** @var Ссылок навигации на страницу */
     private $max = 10;
 
-    /**
-     * 
-     * @var Ключ для GET, в который пишется номер страницы
-     * 
-     */
+    /** @var Ключ для GET, в который пишется номер страницы */
     private $index = 'page';
 
-    /**
-     * 
-     * @var Текущая страница
-     * 
-     */
+    /** @var Текущая страница */
     private $current_page;
 
-    /**
-     * 
-     * @var Общее количество записей
-     * 
-     */
+    /** @var Общее количество записей */
     private $total;
 
-    /**
-     * 
-     * @var Записей на страницу
-     * 
-     */
+    /** @var Записей на страницу */
     private $limit;
 
     /**
      * Запуск необходимых данных для навигации
      * @param integer $total - общее количество записей
      * @param integer $limit - количество записей на страницу
-     * 
-     * @return
      */
     public function __construct($total, $currentPage, $limit, $index)
     {
@@ -73,7 +51,6 @@ class Pagination
 
     /**
      *  Для вывода ссылок
-     * 
      * @return HTML-код со ссылками навигации
      */
     public function get()
@@ -118,8 +95,6 @@ class Pagination
     /**
      * Для генерации HTML-кода ссылки
      * @param integer $page - номер страницы
-     * 
-     * @return
      */
     private function generateHtml($page, $text = null)
     {
@@ -137,7 +112,6 @@ class Pagination
 
     /**
      *  Для получения, откуда стартовать
-     * 
      * @return массив с началом и концом отсчёта
      */
     private function limits()
@@ -167,7 +141,6 @@ class Pagination
 
     /**
      * Для установки текущей страницы
-     * 
      * @return
      */
     private function setCurrentPage($currentPage)
@@ -188,7 +161,6 @@ class Pagination
 
     /**
      * Для получеия общего числа страниц
-     * 
      * @return число страниц
      */
     private function amount()

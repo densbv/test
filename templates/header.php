@@ -17,7 +17,7 @@
 <table class="layout">
     <tr>
         <td colspan="2" class="header">
-            Мой блог
+            My Site
         </td>
     </tr>
     <tr>

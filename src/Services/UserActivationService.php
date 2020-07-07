@@ -2,7 +2,7 @@
 
 namespace Services;
 
-use Services\Db;
+use Components\Db;
 use Models\Users\User;
 
 class UserActivationService 
