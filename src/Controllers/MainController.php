@@ -11,7 +11,7 @@ class MainController extends AbstractController
     {
         $articles = Article::findAll();
         
-        $this->metaTag->setTitle('My BLOG');  
+        $this->metaTag->setTitle('My Site');  
         
         $this->view->renderHtml('main/main.php', [
             'articles' => $articles,

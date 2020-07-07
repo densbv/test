@@ -18,7 +18,7 @@ class ArticlesController extends AbstractController
             throw new NotFoundException();
         }
         
-        $this->metaTag->setTitle($article->getName());  
+        $this->metaTag->setTitle('My Site | ' . $article->getName());  
         $this->metaTag->setKeywords('новое, статья');
         $this->metaTag->setDescription($article->getName());
 
