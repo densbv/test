@@ -7,11 +7,6 @@ spl_autoload_register(function (string $className) { // автозагрузка
     require_once __DIR__ . '../../src/' . $className . '.php';   
 });
 
-ini_set('session.use_strict_mode', 1);
-ini_set('session.cookie_httponly',1);
-session_name('tsu');
-session_start();
-
 $router = new Router();
 $router->run();
 
