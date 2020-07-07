@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/F:/OpenServer/domains/test/src/Controllers/UsersController.php</file>
-            <file>file:/F:/OpenServer/domains/test/templates/header.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/Models/ActiveRecordEntity.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/Services/UsersAuthService.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/Services/UserActivationService.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/Services/EmailSender.php</file>
-            <file>file:/F:/OpenServer/domains/test/www/index.php</file>
-            <file>file:/F:/OpenServer/domains/test/src/Models/MetaTag.php</file>
-            <file>file:/F:/OpenServer/domains/test/www/styles.css</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
