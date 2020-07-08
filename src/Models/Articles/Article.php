@@ -4,6 +4,7 @@ namespace Models\Articles;
 
 use Models\ActiveRecordEntity;
 use Models\Users\User;
+use Exceptions\InvalidArgumentException;
 
 class Article extends ActiveRecordEntity
 {
