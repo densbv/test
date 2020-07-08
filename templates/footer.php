@@ -1,29 +1,15 @@
-</td>
 
-        <td width="300px" class="sidebar">
-            <div class="sidebarHeader">Меню</div>
-            <ul>
-                <li><a href="/">Главная страница</a></li>
-                <li><a href="/about-me">Обо мне</a></li>
-            </ul>
-            <?php if(empty($user)): ?>
-            <div class="sidebarHeader">Для входа</div>
-            <ul>
-                <li>Login: admin@gmail.com</li>
-                <li>Pass: 12345678</li>
-            </ul>
-            <?php elseif ($user->getRole() === 'admin'): ?>
-            <ul>
-                <li><a href="/articles/add">Добавить статью</a></li>
-            </ul>
-            <?php endif; ?>
-        </td>
-    </tr>
-    <tr>
-        <td class="footer" colspan="2">Все права защищены (c) </td>
-    </tr>
-</table>
+<footer id="footer" class="fixed-bottom py-4 bg-secondary text-white-50">
+    <div class="container text-center">
+        <small>Copyright &copy; Your Website</small>
+    </div>
+</footer>
 
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
 

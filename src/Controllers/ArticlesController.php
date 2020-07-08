@@ -74,7 +74,7 @@ class ArticlesController extends AbstractController
             try {
                 $article = Article::createFromArray($_POST, $this->user);
             } catch (InvalidArgumentException $e) {
-                $this->view->renderHtml('articles/add.php', ['error' => $e->getTraceAsString()]);
+                $this->view->renderHtml('articles/add.php', ['error' => $e->getMessage()]);
                 return;
             }
             
