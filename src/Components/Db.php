@@ -13,7 +13,7 @@ class Db {
 
     private function __construct() {
 
-        $dbOptions = (require __DIR__ . '../../config/settings.php')['db'];
+        $dbOptions = (require __DIR__ . '../../config/db_settings.php')['db'];
         
         try {
         $this->pdo = new \PDO(
@@ -27,6 +27,12 @@ class Db {
         }
     }
 
+    /**
+     * @param string $sql
+     * @param type $params
+     * @param string $className
+     * @return array|null
+     */
     public function query(string $sql, $params = [], string $className = 'stdClass'): ?array {
         $sth = $this->pdo->prepare($sql);
         $result = $sth->execute($params);
@@ -38,6 +44,9 @@ class Db {
         return $sth->fetchAll(\PDO::FETCH_CLASS, $className);
     }
 
+    /**
+     * @return \self
+     */
     public static function getInstance(): self {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -46,6 +55,9 @@ class Db {
         return self::$instance;
     }
     
+    /**
+     * @return int
+     */
     public function getLastInsertId(): int
     {
         return (int) $this->pdo->lastInsertId();
