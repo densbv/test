@@ -2,8 +2,6 @@
 
 namespace Components;
 
-use helpers\Helper;
-
 class Router 
 {
     /** @var array */
