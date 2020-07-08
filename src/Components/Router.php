@@ -26,24 +26,24 @@ class Router
         
         $this->route = $_GET['route']; // запрос
         
-        foreach ($this->routes as $pattern => $controllerAndAction) { // в цикле проходим по заданным роутам
-            preg_match($pattern, $this->route, $matches); // смотрим соответствует ли шаблон из роутов запросу
-            if (!empty($matches)) { // если массив не пуст, что означает совпадение
-                $isRouteFound = true; // то маршрут найден, возвращаем true
-                break; // завершаем цикл, выходим
+        foreach ($this->routes as $pattern => $controllerAndAction) {
+            preg_match($pattern, $this->route, $matches); 
+            if (!empty($matches)) {
+                $isRouteFound = true;
+                break; 
             }
         }
 
-        if (!$isRouteFound) { // если маршрут не найден, бросаем исключение
+        if (!$isRouteFound) { 
             throw new \Exceptions\NotFoundException();
         }
 
-        unset($matches[0]); // удаляем первое совпадение из массива
+        unset($matches[0]);
 
-        $controllerName = $controllerAndAction[0]; // получаем название контроллера
-        $actionName = $controllerAndAction[1]; // получаем название экшена
+        $controllerName = $controllerAndAction[0]; 
+        $actionName = $controllerAndAction[1]; 
 
-        $controller = new $controllerName(); // создаем экземпляр класса контроллера
-        $controller->$actionName(...$matches); // вызываем его метод экшн и передаем массив значений, если есть
+        $controller = new $controllerName();
+        $controller->$actionName(...$matches);
     }
 }
