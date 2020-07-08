@@ -10,7 +10,7 @@ class Helper
      */
     public static function html(string $var): string
     {
-        $var = htmlentities($var); // для удаления из строки любого HTML-кода
+        $var = htmlentities($var, ENT_QUOTES, "UTF-8"); 
         return $var;
     }
     
@@ -20,12 +20,9 @@ class Helper
      */
     public static function sanitizeString(string $var): string 
     {
-        $var = stripslashes($var); //избавиться от нежелательных слеш-символов, например
-        //с помощью уже устаревшей директивы magic_quotes_gpc
-        $var = strip_tags($var);  // заменяет все угловые скобки, 
-        //используемые в качестве
-        //составляющих HTML-тегов
-        $var = htmlentities($var, ENT_QUOTES); // для удаления из строки любого HTML-кода
+        $var = stripslashes($var); 
+        $var = strip_tags($var);   
+        $var = htmlentities($var, ENT_QUOTES, "UTF-8");
         return $var;
     }
 

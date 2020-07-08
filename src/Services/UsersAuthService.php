@@ -3,7 +3,6 @@
 namespace Services;
 
 use Models\Users\User;
-use helpers\Helper;
 
 class UsersAuthService 
 {
