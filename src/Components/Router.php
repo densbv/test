@@ -9,17 +9,13 @@ class Router
     /** @var array */
     private $routes;
     /** @var string */
-    private $route;
-    /** @var bool */        
-    private $isRouteFound;
+    private $route;       
 
     public function __construct() 
     {
-        // Подключаем файл с маршрутами routes.php
         $routesPath = __DIR__ . '/../../src/config/routes.php';
         $this->routes = require $routesPath;
-        $this->route = ''; // пустая строка
-        $this->isRouteFound = false; // маршрут найден? - нет
+        $this->route = '';
     }
    
     /**
@@ -28,17 +24,19 @@ class Router
      */
     public function run(): void
     {
+        $isRouteFound = false;  
+        
         $this->route = $_GET['route']; // запрос
         
         foreach ($this->routes as $pattern => $controllerAndAction) { // в цикле проходим по заданным роутам
             preg_match($pattern, $this->route, $matches); // смотрим соответствует ли шаблон из роутов запросу
             if (!empty($matches)) { // если массив не пуст, что означает совпадение
-                $this->isRouteFound = true; // то маршрут найден, возвращаем true
+                $isRouteFound = true; // то маршрут найден, возвращаем true
                 break; // завершаем цикл, выходим
             }
         }
 
-        if (!$this->isRouteFound) { // если маршрут не найден, бросаем исключение
+        if (!$isRouteFound) { // если маршрут не найден, бросаем исключение
             throw new \Exceptions\NotFoundException();
         }
 
